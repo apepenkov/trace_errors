@@ -81,6 +81,17 @@ func Wrapf(err error, format string, args ...interface{}) error {
 	}
 }
 
+// WrapTrace wraps an existing error with a stack frame.
+func WrapTrace(err error) error {
+	if err == nil {
+		return nil
+	}
+	return &TraceError{
+		Err:   err,
+		Frame: captureStackFrame(),
+	}
+}
+
 // captureStackFrame captures the current stack frame.
 func captureStackFrame() string {
 	pc, file, line, ok := runtime.Caller(2)
