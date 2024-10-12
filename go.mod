@@ -1,1 +1,1 @@
-module trace_errors
+module github.com/apepenkov/trace_errors
