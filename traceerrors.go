@@ -1,4 +1,4 @@
-package traceerrors
+package trace_errors
 
 import (
 	"fmt"
